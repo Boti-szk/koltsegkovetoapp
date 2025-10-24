@@ -1,0 +1,30 @@
+<div class="expenses-container">
+  <mat-card class="expenses-card">
+    <h1 class="title">Költségeim</h1>
+
+    <div class="expenses-list">
+      <div class="expense-item" *ngFor="let expense of expenses">
+        <h2 class="expense-title">{{ expense.title }}</h2>
+
+        <p class="expense-meta">
+          {{ expense.date }} |
+          <span [class.income]="expense.type === 'Bevétel'"
+                [class.expense]="expense.type === 'Kiadás'">
+            {{ expense.type }}
+          </span>
+        </p>
+
+        <p class="expense-amount">{{ expense.amount }} Ft</p>
+
+        <p class="expense-desc">
+          <strong>Leírás:</strong> {{ expense.description }}
+        </p>
+
+        <div class="expense-actions">
+          <button mat-raised-button class="edit-btn">Módosítás</button>
+          <button mat-raised-button class="delete-btn">Törlés</button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
