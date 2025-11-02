@@ -48,7 +48,7 @@
                 }
               ],
               "outputHashing": "all",
-              "serviceWorker": "public/manifest.webmanifest"
+              "serviceWorker": "ngsw-config.json"
             },
             "development": {
               "optimization": false,
