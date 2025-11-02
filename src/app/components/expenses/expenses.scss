@@ -22,6 +22,24 @@
       margin-bottom: 2rem;
       letter-spacing: 1.2px;
     }
+    .actions-title {
+      display: flex;
+      justify-content: center;
+      margin: -0.5rem 0 1.5rem;
+
+      .add-btn {
+        font-weight: 700;
+        border-radius: 8px;
+        text-transform: uppercase;
+        background-color: #e11d48;
+        color: #fff;
+
+        &:hover {
+          background-color: #b91c38;
+        }
+      }
+    }
+
 
     .expenses-list {
       display: grid;

@@ -2,12 +2,16 @@
   <mat-card class="expenses-card">
     <h1 class="title">Költségeim</h1>
 
+    <div class="actions-title">
+      <a mat-raised-button class="add-btn" routerLink="/addexpenses">Hozzáadás</a>
+    </div>
+
     <div class="expenses-list">
       <div class="expense-item" *ngFor="let expense of expenses">
         <h2 class="expense-title">{{ expense.title }}</h2>
 
         <p class="expense-meta">
-          {{ expense.date }} |
+          {{ expense.date | dateFormatter }} |
           <span [class.income]="expense.type === 'Bevétel'"
                 [class.expense]="expense.type === 'Kiadás'">
             {{ expense.type }}
@@ -22,7 +26,7 @@
 
         <div class="expense-actions">
           <button mat-raised-button class="edit-btn">Módosítás</button>
-          <button mat-raised-button class="delete-btn">Törlés</button>
+          <button mat-raised-button class="delete-btn" (click)="onDelete(expense.id)">Törlés</button>
         </div>
       </div>
     </div>

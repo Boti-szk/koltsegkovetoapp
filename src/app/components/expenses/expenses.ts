@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-
 import { Expense } from '../../shared/expense';
 import { ExpenseService } from '../../services/expense';
+import { RouterLink } from '@angular/router';
+import { DateFormatter } from '../../shared/pipes/date-formatter-pipe';
 
 @Component({
   selector: 'app-expenses',
@@ -12,7 +13,9 @@ import { ExpenseService } from '../../services/expense';
   imports:[
     CommonModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule, 
+    RouterLink,
+    DateFormatter
   ],
   templateUrl: './expenses.html',
   styleUrls: ['./expenses.scss']
@@ -24,5 +27,9 @@ export class Expenses {
 
   ngOnInit(): void {
     this.expenses = this.expenseService.getAll();
+  }
+
+  onDelete(id: number): void {
+    this.expenseService.delete(id);
   }
 }
